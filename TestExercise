@@ -1,0 +1,44 @@
+const sights = [
+  {sightname: "Исаакиевский собор", time: 5, Importance: 10 },
+  {sightname: "Эрмитаж", time: 8, Importance: 11 },
+  {sightname: "Кунсткамера", time: 3.5, Importance: 4 },
+  {sightname: "Петропавловская крепость", time: 10, Importance: 7 },
+  {sightname: "Ленинградский зоопарк", time: 9, Importance: 15 },
+  {sightname: "Медный всадник", time: 1, Importance: 17 },
+  {sightname: "Казанский собор", time: 4, Importance: 3 },
+  {sightname: "Спас на Крови", time: 2, Importance: 9 },
+  {sightname: "Зимний дворец Петра I", time: 7, Importance: 12 },
+  {sightname: "Зоологический музей", time: 5.5, Importance: 6 },
+  {sightname: "Музей обороны и блокады Ленинграда", time: 2, Importance: 19 },
+  {sightname: "Русский музей", time: 5, Importance: 18 },
+  {sightname: "Навестить друзей", time: 12, Importance: 20 },
+  {sightname: "Музей восковых фигур", time: 2, Importance: 13 },
+  {sightname: "Литературно-мемориальный музей Ф.М. Достоевского", time: 2, Importance: 13 },
+  {sightname: "Екатерининский дворец", time: 1.5, Importance: 5 },
+  {sightname: "Петербургский музей кукол", time: 1, Importance: 14 },
+  {sightname: "Музей микроминиатюры «Русский Левша»", time: 3, Importance: 18 },
+  {sightname: "Всероссийский музей А.С. Пушкина и филиалы", time: 6, Importance: 1 },
+  {sightname: "Музей современного искусства Эрарта", time: 7, Importance: 16 },
+   ];
+
+let newSigthts = sights.sort(function(a, b){return b.Importance - a.Importance});
+
+console.log(newSigthts);
+
+  let allHours = 48;
+  let sleepHours = 16;
+  let leftHours = allHours-sleepHours;
+
+  const result = [];
+  let sum = 0;
+
+  for(const sig of newSigthts) {
+    if(sum + sig.time > leftHours) {
+      break;
+    }
+
+    result.push({ ...sig });
+    sum += sig.time;
+  }
+
+console.log(result);
